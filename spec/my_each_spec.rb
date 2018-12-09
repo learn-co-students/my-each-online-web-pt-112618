@@ -7,6 +7,32 @@ describe "my_each" do
   it "does not call on .each" do
     expect(file).to_not include(".each")
   end
+  
+  def my_each (array)
+    numbers = [5,6,7,8]
+    i = 0
+    
+    while i < array.length 
+    yield array [i]
+    i = i+1 
+  end
+end
+
+my_each ([5,6,7,8]) do |number|
+  if number > 8 
+    puts "Yes it is less #{number}"
+  end
+end
+
+def my_each (array)
+  i = 0 
+  while i < array.length 
+  yield array ([i])
+  i = i + 1
+end
+
+array
+end
 
   it "does not call on puts" do
     expect(file).to_not include("puts")
